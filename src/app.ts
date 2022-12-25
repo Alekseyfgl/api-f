@@ -24,7 +24,7 @@ export class App {
 		@inject(TYPES.EmailsController) private emailsController: EmailsController,
 	) {
 		this.app = express();
-		this.port = 80;
+		this.port = 3000;
 	}
 
 	//для обработок ошибок
