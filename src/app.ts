@@ -24,7 +24,7 @@ export class App {
 		@inject(TYPES.EmailsController) private emailsController: EmailsController,
 	) {
 		this.app = express();
-		this.port = 3000;
+		this.port = 80;
 	}
 
 	//для обработок ошибок
@@ -43,6 +43,7 @@ export class App {
 	}
 
 	useRoutes(): void {
+		this.app.use('/', res.sendStatus(201));
 		this.app.use('/users', this.usersController.router);
 		this.app.use('/emails', this.emailsController.router);
 	}

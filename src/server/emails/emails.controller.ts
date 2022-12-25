@@ -28,6 +28,11 @@ export class EmailsController extends BaseController implements IEmailsControlle
 				func: this.reqCall,
 				middlewares: [new ValidateMiddleware(EmailReqCallDto)],
 			},
+			{
+				path: '/test',
+				method: 'get',
+				func: this.test,
+			},
 		]);
 	}
 
@@ -45,6 +50,11 @@ export class EmailsController extends BaseController implements IEmailsControlle
 		if (!result) {
 			return next(new HTTPError(500, MESSAGE_RESPONSE.FAILED));
 		}
+		this.ok(res, { message: MESSAGE_RESPONSE.SUCCESSFULLY });
+	}
+
+
+	async test(req: Request, res: Response, next: NextFunction): Promise<void> {
 		this.ok(res, { message: MESSAGE_RESPONSE.SUCCESSFULLY });
 	}
 }
