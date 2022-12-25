@@ -1,10 +1,10 @@
-import { IsEmail, IsMobilePhone, IsString } from 'class-validator';
+import { IsEmail, IsMobilePhone, IsString, Length } from 'class-validator';
 
 export class EmailReqCallDto {
 	@IsString()
 	name: string;
 	@IsMobilePhone()
 	phone: string;
-	@IsEmail()
+	@Length(5)
 	email: string;
 }
