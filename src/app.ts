@@ -43,7 +43,6 @@ export class App {
 	}
 
 	useRoutes(): void {
-		this.app.use('/', res.sendStatus(201));
 		this.app.use('/users', this.usersController.router);
 		this.app.use('/emails', this.emailsController.router);
 	}

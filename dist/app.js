@@ -40,7 +40,7 @@ let App = class App {
         this.configService = configService;
         this.emailsController = emailsController;
         this.app = (0, express_1.default)();
-        this.port = 3000;
+        this.port = 80;
     }
     useExceptionFilters() {
         this.app.use(this.exceptionFilter.catch.bind(this.exceptionFilter));

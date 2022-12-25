@@ -47,6 +47,11 @@ let EmailsController = class EmailsController extends base_controller_1.BaseCont
                 func: this.reqCall,
                 middlewares: [new validate_middleware_1.ValidateMiddleware(emails_req_call_dto_1.EmailReqCallDto)],
             },
+            {
+                path: '/test',
+                method: 'get',
+                func: this.test,
+            },
         ]);
     }
     ring(req, res, next) {
@@ -65,6 +70,11 @@ let EmailsController = class EmailsController extends base_controller_1.BaseCont
             if (!result) {
                 return next(new exception_filter_1.HTTPError(500, "failed"));
             }
+            this.ok(res, { message: "successfully" });
+        });
+    }
+    test(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
             this.ok(res, { message: "successfully" });
         });
     }
